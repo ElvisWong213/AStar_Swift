@@ -61,7 +61,7 @@ class PathFinding {
             return
         }
         open.append(start!)
-        repeat {
+        while open.count > 0 {
             guard let current = getLowsetFInOpen() else { return }
             close.append(current)
             
@@ -74,22 +74,26 @@ class PathFinding {
                 if neighbour.type == .Wall || close.contains(neighbour) {
                     continue
                 }
-                if !open.contains(neighbour) {
-                    neighbour.setG(previous: current)
-                    neighbour.setH(target: target!)
+                let newMovementToNeighbourCost = current.g + distance(nodeA: current, nodeB: neighbour)
+                if !open.contains(neighbour) || newMovementToNeighbourCost < neighbour.g {
+                    neighbour.g = newMovementToNeighbourCost
+                    neighbour.h = distance(nodeA: neighbour, nodeB: target!)
                     neighbour.previousNode = current
-                    open.append(neighbour)
-                } else {
-                    guard let index = open.firstIndex(of: neighbour) else { continue }
-                    if neighbour.f < open[index].f {
-                        neighbour.setG(previous: current)
-                        neighbour.setH(target: target!)
-                        neighbour.previousNode = current
-                        open[index] = neighbour
+                    if !open.contains(neighbour) {
+                        open.append(neighbour)
                     }
                 }
             }
-        } while true
+        }
+    }
+    
+    func distance(nodeA: Node, nodeB: Node) -> Int {
+        let d = 10
+        let d2 = 14
+        let xDiff = abs(nodeA.x - nodeB.x)
+        let yDiff = abs(nodeA.y - nodeB.y)
+        
+        return d * (xDiff + yDiff) + (d2 - 2 * d) * min(xDiff, yDiff)
     }
     
     func getResult() -> [Node] {

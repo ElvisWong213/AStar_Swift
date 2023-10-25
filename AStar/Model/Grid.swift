@@ -45,11 +45,6 @@ class Grid {
         nodes[index].type = type
     }
     
-    func resetNode(node: Node) {
-        let index = findNodeIndex(x: node.x, y: node.y)
-        nodes[index].reset()
-    }
-    
     func getNeighbours(node: Node) -> [Node] {
         var list: [Node] = []
         for x in node.x - 1 ... node.x + 1 {

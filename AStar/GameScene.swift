@@ -76,15 +76,15 @@ class GameScene: SKScene {
 
 extension GameScene {
     func changeNode(node: SKSpriteNode) {
+        for node in pathFinding.getResult() {
+            changeNode(node: node, type: .Air)
+        }
         guard let index = node.name else { return }
         switch type {
         case .Wall, .Air:
             node.color = type.color
             pathFinding.grid.updateNode(with: Int(index), type: type)
         case .Start:
-            for node in pathFinding.getResult() {
-                path(node: node, type: .Air)
-            }
             node.color = type.color
             if let nodeName = pathFinding.start?.id {
                 if index != pathFinding.start?.id {
@@ -94,9 +94,6 @@ extension GameScene {
             }
             pathFinding.setStart(with: Int(index))
         case .End:
-            for node in pathFinding.getResult() {
-                path(node: node, type: .Air)
-            }
             node.color = type.color
             if let nodeName = pathFinding.target?.id {
                 if index != pathFinding.target?.id {
@@ -127,7 +124,7 @@ extension GameScene {
                     pathFinding.findPath()
                     let nodes = pathFinding.getResult()
                     for node in nodes {
-                        path(node: node)
+                        changeNode(node: node)
                     }
                 case "r":
                     restart()
@@ -139,7 +136,7 @@ extension GameScene {
         }
     }
     
-    func path(node: Node, type: NodeType = .Path) {
+    func changeNode(node: Node, type: NodeType = .Path) {
         let nodeName = node.id
         if nodeName != pathFinding.start?.id && nodeName != pathFinding.target?.id {
             let n = self.childNode(withName: nodeName) as? SKSpriteNode

@@ -12,8 +12,8 @@ class Node: Identifiable {
     let x: Int
     let y: Int
     
-    private (set) var g: Int
-    private (set) var h: Int
+    var g: Int
+    var h: Int
     var f: Int {
         get {
             return g + h
@@ -32,32 +32,6 @@ class Node: Identifiable {
         self.type = type
         self.previousNode = previousNode
     }
-
-    func reset() {
-        self.g = 0
-        self.h = 0
-        self.type = .Air
-        self.previousNode = nil
-    }
-    
-    func setG(previous: Node) {
-        self.g = previous.g + distance(nodeA: previous, nodeB: self)
-//        print("g: \(self.g) \(self.description)")
-    }
-    
-    func setH(target: Node) {
-        h = distance(nodeA: self, nodeB: target)
-    }
-    
-    func distance(nodeA: Node, nodeB: Node) -> Int {
-        let d = 10
-        let d2 = 14
-        let xDiff = abs(nodeA.x - nodeB.x)
-        let yDiff = abs(nodeA.y - nodeB.y)
-        
-        return d * (xDiff + yDiff) + (d2 - 2 * d) * min(xDiff, yDiff)
-    }
-    
 }
 
 extension Node: Equatable {
