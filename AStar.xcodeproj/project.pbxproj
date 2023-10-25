@@ -14,7 +14,22 @@
 		AA1A273F2AE5A204002DD14E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A273E2AE5A204002DD14E /* ViewController.swift */; };
 		AA1A27412AE5A205002DD14E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1A27402AE5A205002DD14E /* Assets.xcassets */; };
 		AA1A27442AE5A205002DD14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1A27422AE5A205002DD14E /* Main.storyboard */; };
+		AA1A27512AE703F2002DD14E /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A27502AE703F1002DD14E /* NodeType.swift */; };
+		AA1A27542AE70451002DD14E /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A27532AE70451002DD14E /* Node.swift */; };
+		AA1A27582AE711ED002DD14E /* PathFinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A27572AE711ED002DD14E /* PathFinding.swift */; };
+		AA1A275A2AE71D63002DD14E /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A27592AE71D63002DD14E /* Grid.swift */; };
+		AA1A27622AE75138002DD14E /* AStarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A27612AE75138002DD14E /* AStarTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA1A27632AE75138002DD14E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA1A272B2AE5A204002DD14E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA1A27322AE5A204002DD14E;
+			remoteInfo = AStar;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AA1A27332AE5A204002DD14E /* AStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +41,23 @@
 		AA1A27402AE5A205002DD14E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA1A27432AE5A205002DD14E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA1A27452AE5A205002DD14E /* AStar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AStar.entitlements; sourceTree = "<group>"; };
+		AA1A27502AE703F1002DD14E /* NodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeType.swift; sourceTree = "<group>"; };
+		AA1A27532AE70451002DD14E /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		AA1A27572AE711ED002DD14E /* PathFinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathFinding.swift; sourceTree = "<group>"; };
+		AA1A27592AE71D63002DD14E /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		AA1A275F2AE75138002DD14E /* AStarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AStarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA1A27612AE75138002DD14E /* AStarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStarTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AA1A27302AE5A204002DD14E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA1A275C2AE75138002DD14E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1A27352AE5A204002DD14E /* AStar */,
+				AA1A27602AE75138002DD14E /* AStarTests */,
 				AA1A27342AE5A204002DD14E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1A27332AE5A204002DD14E /* AStar.app */,
+				AA1A275F2AE75138002DD14E /* AStarTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,12 +92,32 @@
 				AA1A27382AE5A204002DD14E /* GameScene.sks */,
 				AA1A273A2AE5A204002DD14E /* Actions.sks */,
 				AA1A273C2AE5A204002DD14E /* GameScene.swift */,
+				AA1A27522AE70434002DD14E /* Model */,
 				AA1A273E2AE5A204002DD14E /* ViewController.swift */,
 				AA1A27402AE5A205002DD14E /* Assets.xcassets */,
 				AA1A27422AE5A205002DD14E /* Main.storyboard */,
 				AA1A27452AE5A205002DD14E /* AStar.entitlements */,
 			);
 			path = AStar;
+			sourceTree = "<group>";
+		};
+		AA1A27522AE70434002DD14E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA1A27572AE711ED002DD14E /* PathFinding.swift */,
+				AA1A27592AE71D63002DD14E /* Grid.swift */,
+				AA1A27502AE703F1002DD14E /* NodeType.swift */,
+				AA1A27532AE70451002DD14E /* Node.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AA1A27602AE75138002DD14E /* AStarTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA1A27612AE75138002DD14E /* AStarTests.swift */,
+			);
+			path = AStarTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +140,24 @@
 			productReference = AA1A27332AE5A204002DD14E /* AStar.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AA1A275E2AE75138002DD14E /* AStarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA1A27652AE75138002DD14E /* Build configuration list for PBXNativeTarget "AStarTests" */;
+			buildPhases = (
+				AA1A275B2AE75138002DD14E /* Sources */,
+				AA1A275C2AE75138002DD14E /* Frameworks */,
+				AA1A275D2AE75138002DD14E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA1A27642AE75138002DD14E /* PBXTargetDependency */,
+			);
+			name = AStarTests;
+			productName = AStarTests;
+			productReference = AA1A275F2AE75138002DD14E /* AStarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -102,6 +170,10 @@
 				TargetAttributes = {
 					AA1A27322AE5A204002DD14E = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					AA1A275E2AE75138002DD14E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = AA1A27322AE5A204002DD14E;
 					};
 				};
 			};
@@ -119,6 +191,7 @@
 			projectRoot = "";
 			targets = (
 				AA1A27322AE5A204002DD14E /* AStar */,
+				AA1A275E2AE75138002DD14E /* AStarTests */,
 			);
 		};
 /* End PBXProject section */
@@ -135,6 +208,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA1A275D2AE75138002DD14E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -143,12 +223,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA1A273F2AE5A204002DD14E /* ViewController.swift in Sources */,
+				AA1A27512AE703F2002DD14E /* NodeType.swift in Sources */,
 				AA1A273D2AE5A204002DD14E /* GameScene.swift in Sources */,
+				AA1A275A2AE71D63002DD14E /* Grid.swift in Sources */,
+				AA1A27582AE711ED002DD14E /* PathFinding.swift in Sources */,
 				AA1A27372AE5A204002DD14E /* AppDelegate.swift in Sources */,
+				AA1A27542AE70451002DD14E /* Node.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA1A275B2AE75138002DD14E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA1A27622AE75138002DD14E /* AStarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA1A27642AE75138002DD14E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA1A27322AE5A204002DD14E /* AStar */;
+			targetProxy = AA1A27632AE75138002DD14E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AA1A27422AE5A205002DD14E /* Main.storyboard */ = {
@@ -334,6 +434,40 @@
 			};
 			name = Release;
 		};
+		AA1A27662AE75138002DD14E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 447H88N27M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elvis.AStarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AStar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AStar";
+			};
+			name = Debug;
+		};
+		AA1A27672AE75138002DD14E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 447H88N27M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elvis.AStarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AStar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AStar";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -351,6 +485,15 @@
 			buildConfigurations = (
 				AA1A27492AE5A205002DD14E /* Debug */,
 				AA1A274A2AE5A205002DD14E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA1A27652AE75138002DD14E /* Build configuration list for PBXNativeTarget "AStarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA1A27662AE75138002DD14E /* Debug */,
+				AA1A27672AE75138002DD14E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
